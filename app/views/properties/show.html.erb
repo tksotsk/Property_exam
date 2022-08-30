@@ -1,0 +1,25 @@
+<br><br>
+<b>物件名：</b><%= @property.property %><br>
+<br><br>
+<b>賃料：</b><%= @property.rent %>円<br>
+<br><br>
+<b>住所：</b><%= @property.address %><br>
+<br><br>
+<b>築年数  </b><%= @property.building_age %>年<br>
+<br><br>
+<b>備考  </b><%= @property.remarks %><br>
+<br><br>
+<hr>
+
+<% a=1 %>
+<% @nearest_stations.each do |nearest_station| %>
+<h2>最寄り駅<%= "#{a}" %></h2>
+<b>路線名</b><%= nearest_station.name_of_railway %><br>
+<b>駅名</b><%= nearest_station.station_name %><br>
+<b>徒歩分数</b><%= nearest_station.how_many_minites_walk %><br>
+<% a+=1 %>
+<% end %>
+<br>
+<%= link_to '戻る', properties_path %>
+
+
