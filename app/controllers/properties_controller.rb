@@ -12,10 +12,10 @@ class PropertiesController < ApplicationController
   def create
     @property = Property.new(property_params)
     if @property.save
-      flash[:success] = "Property successfully created"
+      flash[:success] = "新しい物件が作成されました"
       redirect_to @property
     else
-      flash[:error] = "Something went wrong"
+      flash[:error] = ""
       render 'new'
     end
   end
@@ -28,9 +28,18 @@ class PropertiesController < ApplicationController
   end
 
   def update
+    if @property.update(property_params)
+      flash[:success] = "物件が編巣されました"
+      redirect_to @property
+    else
+      flash[:error] = ""
+      render 'edit'
+    end
   end
 
   def destroy
+    @property.destroy
+    redirect_to properties_path, notice: "物件は削除されました"
   end
 
   private
