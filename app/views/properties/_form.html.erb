@@ -1,18 +1,20 @@
-<h2>物件登録</h2>
+
 
 <%= form_with(model: property, local: true, url: choose_new_or_edit) do |form| %>
-  <%= form.label :property %>
-  <%= form.text_field :property %>
-
-  <%= form.label :rent %>
-  <%= form.text_field :rent %>
-  
-  <%= form.label :address %>
-  <%= form.text_field :address %>
-
-  <%= form.label :building_age %>
-  <%= form.text_field :building_age %>
-
-  <%= form.label :remarks %>
-  <%= form.text_area :remarks %>
+  <%= form.label :property %><br>
+  <%= form.text_field :property %><br>
+<br>
+  <%= form.label :rent %><br>
+  <%= form.text_field :rent %><br>
+<br>
+  <%= form.label :address %><br>
+  <%= form.text_field :address %><br>
+<br>
+  <%= form.label :building_age %><br>
+  <%= form.text_field :building_age %><br>
+<br>
+  <%= form.label :remarks %><br>
+  <%= form.text_area :remarks %><br>
+<br>
+<hr>
 <% end %>
