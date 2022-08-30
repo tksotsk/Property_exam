@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_30_014009) do
+ActiveRecord::Schema.define(version: 2022_08_30_040134) do
 
   create_table "properties", force: :cascade do |t|
-    t.string "property"
+    t.string "property", null: false
     t.integer "rent"
     t.string "address"
     t.integer "building_age"
