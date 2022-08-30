@@ -1,6 +1,6 @@
 
 
-<%= form_with(model: property, local: true, url: choose_new_or_edit) do |form| %>
+<%= form_with(model: property, local: true) do |form| %>
   <%= form.label :property %><br>
   <%= form.text_field :property %><br>
 <br>
@@ -17,4 +17,5 @@
   <%= form.text_area :remarks %><br>
 <br>
 <hr>
+<%= form.submit '登録する' , new_property_path%>
 <% end %>

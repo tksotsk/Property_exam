@@ -1,2 +1,14 @@
-<h1>Properties#show</h1>
-<p>Find me in app/views/properties/show.html.erb</p>
+<br><br>
+<b>物件名：</b><%= @property.property %><br>
+<br><br>
+<b>賃料：</b><%= @property.rent %>円<br>
+<br><br>
+<b>住所：</b><%= @property.address %><br>
+<br><br>
+<b>築年数  </b><%= @property.building_age %>年<br>
+<br><br>
+<b>備考  </b><%= @property.remarks %><br>
+<br><br>
+<hr>
+<br>
+<%= link_to '戻る', properties_path %>
