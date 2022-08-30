@@ -5,17 +5,37 @@
   <%= form.text_field :property %><br>
 <br>
   <%= form.label :rent %><br>
-  <%= form.text_field :rent %><br>
+  <%= form.text_field :rent %>円<br>
 <br>
   <%= form.label :address %><br>
   <%= form.text_field :address %><br>
 <br>
   <%= form.label :building_age %><br>
-  <%= form.text_field :building_age %><br>
+  <%= form.text_field :building_age %>年<br>
 <br>
   <%= form.label :remarks %><br>
   <%= form.text_area :remarks %><br>
 <br>
 <hr>
+<br>
+<% a=0 %>
+<% while a<2 do %>
+  <%= form.fields_for :nearest_stations do | nearest_station | %>  
+    <h2>最寄り駅<%= "#{a+1}" %></h2>
+    <%= nearest_station.label :name_of_railway %><br>
+    <%= nearest_station.text_field :name_of_railway %><br>
+    <br>
+    <%= nearest_station.label :station_name %><br>
+    <%= nearest_station.text_field :station_name %><br>
+    <br>
+    <%= nearest_station.label :how_many_minites_walk %><br>
+    <%= nearest_station.text_field :how_many_minites_walk %><br>
+    <% a+=1 %>
+  <% end %>
+<% end %> 
+
+
+
+<br>
 <%= form.submit submit_new_or_edit %>
 <% end %>

@@ -7,10 +7,14 @@ class PropertiesController < ApplicationController
 
   def new
     @property = Property.new
+    @property.nearest_stations.new
   end
 
   def create
     @property = Property.new(property_params)
+    @property.nearest_stations.each do |v|
+      v.delete if v.station_name.blank?
+    end
     if @property.save
       flash[:success] = "新しい物件が作成されました"
       redirect_to @property
@@ -20,14 +24,18 @@ class PropertiesController < ApplicationController
     end
   end
   
-
   def show
+    @nearest_stations = NearestStation.where(property_id: @property.id)
   end
 
   def edit
+    @nearest_stations = NearestStation.where(property_id: @property.id)
+    @property.nearest_stations.new
   end
 
   def update
+    @nearest_stations = NearestStation.where(property_id: @property.id)
+    
     if @property.update(property_params)
       flash[:success] = "物件が編巣されました"
       redirect_to @property
@@ -49,7 +57,7 @@ class PropertiesController < ApplicationController
   end
 
   def property_params
-    params.require(:property).permit(:property, :rent, :address, :building_age, :remarks)
+    params.require(:property).permit(:property, :rent, :address, :building_age, :remarks, nearest_stations_attributes: [:id, :name_of_railway, :station_name, :how_many_minites_walk])
   end
 
 end

@@ -17,10 +17,10 @@ ja:
         address: 住所
         building_age: 築年数
         remarks: 備考
-      # nearest_station:
-      #   name_of_railway: 路線名
-      #   station_name: 駅名
-      #   how_many_minites_walk: 徒歩分数
+      nearest_station:
+        name_of_railway: 路線名
+        station_name: 駅名
+        how_many_minites_walk: 徒歩分数
   date:
     abbr_day_names:
     - 日
